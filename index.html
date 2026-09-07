@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AGIL | Automated García Intelligence &amp; Logistics</title>
-  <meta name="description" content="Automatización Inteligente en Supply Chain. Potenciando el valor humano a través de la tecnología eficiente.">
+  <title>AGIL | Test de Modernización Operativa</title>
+  <meta name="description" content="AGIL moderniza, automatiza y conecta las operaciones de tu empresa con IA, automatización y arquitectura cloud. Descubre tu Score de Modernización Operativa gratis.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,11 +25,10 @@
         <span class="logo-text">AGIL</span>
       </a>
       <nav class="navbar__links">
-        <a href="#problema">El Problema</a>
-        <a href="#filosofia">Filosofía</a>
-        <a href="#soluciones">Soluciones</a>
-        <a href="#ruta">Ruta</a>
-        <a href="#contacto" class="navbar__cta">Hablemos</a>
+        <a href="#perdidas">Diagnóstico</a>
+        <a href="#casos">Casos</a>
+        <a href="#auditoria">Auditoría</a>
+        <a href="#test" class="navbar__cta">Hacer el Test</a>
       </nav>
     </div>
   </header>
@@ -38,6 +37,19 @@
   <!-- 1. HERO -->
   <!-- ============================= -->
   <section class="hero" id="hero">
+    <canvas id="heroNetwork" aria-hidden="true"></canvas>
+    <div class="hero__wave" aria-hidden="true">
+      <svg viewBox="0 0 1600 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="waveGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#2f6bff"/>
+            <stop offset="100%" stop-color="#22e2ff"/>
+          </linearGradient>
+        </defs>
+        <path d="M0,110 C160,180 320,40 480,110 C640,180 800,40 960,110 C1120,180 1280,40 1440,110 C1520,145 1560,150 1600,140 L1600,220 L0,220 Z" fill="url(#waveGrad)" opacity="0.16"/>
+        <path d="M800,110 C960,180 1120,40 1280,110 C1440,180 1600,40 1760,110 C1840,145 1880,150 1920,140 L1920,220 L800,220 Z" fill="url(#waveGrad)" opacity="0.16"/>
+      </svg>
+    </div>
     <div class="hero__glow hero__glow--1"></div>
     <div class="hero__glow hero__glow--2"></div>
     <div class="hero__grid"></div>
@@ -45,20 +57,24 @@
     <div class="container hero__content reveal">
       <p class="eyebrow">Automated García Intelligence &amp; Logistics</p>
       <h1 class="hero__title">
-        Automatización Inteligente
-        <span class="text-gradient">en Supply Chain</span>
+        Tus procesos administrativos
+        <span class="text-gradient">están perdiendo dinero todos los días.</span>
       </h1>
       <p class="hero__subtitle">
-        Potenciando el valor humano a través de la tecnología eficiente.
+        Descubre cuánto con un test de modernización operativa.
       </p>
       <p class="hero__text">
-        Diseñamos soluciones de automatización de costo cero que eliminan tareas
-        repetitivas y devuelven tiempo, foco y valor a los equipos de Supply Chain.
+        Test interactivo. 9 preguntas. Resultado inmediato.
       </p>
       <div class="hero__actions">
-        <a href="https://wa.me/525532180680?text=Hola%20AGIL%2C%20me%20gustar%C3%ADa%20agendar%20una%20auditor%C3%ADa%20gratuita%20de%20automatizaci%C3%B3n." target="_blank" rel="noopener" class="btn btn--primary">Agenda una Auditoría Gratuita</a>
-        <a href="#soluciones" class="btn btn--ghost">Conoce las Soluciones</a>
+        <a href="#test" class="btn btn--primary btn--lg">Descubre tu Score</a>
       </div>
+      <ul class="hero__microcopy" aria-hidden="true">
+        <li>✅ Toma menos de 30 segundos</li>
+        <li>✅ Sí, es divertido</li>
+        <li>✅ Sí, es útil</li>
+        <li>✅ Sí, te va a sorprender</li>
+      </ul>
     </div>
 
     <div class="scroll-indicator" aria-hidden="true">
@@ -67,70 +83,88 @@
   </section>
 
   <!-- ============================= -->
-  <!-- 2. EL PROBLEMA -->
+  <!-- 2. AUTORIDAD -->
   <!-- ============================= -->
-  <section class="problema" id="problema">
+  <section class="section--light autoridad" id="autoridad">
     <div class="container">
       <div class="section-header reveal">
-        <p class="eyebrow">El Problema</p>
-        <h2>El tiempo se está perdiendo, no se está usando</h2>
+        <p class="eyebrow">Autoridad Operativa</p>
+        <h2>AGIL automatiza operaciones críticas para empresas globales.</h2>
+        <p class="section-subtitle">
+          Integraciones de hasta 3,500 interacciones diarias entre ERP y usuario, en procesos donde no hay margen de error.
+        </p>
       </div>
 
-      <div class="problema__grid">
-        <div class="problema__stat reveal">
-          <div class="stat-circle">
-            <svg viewBox="0 0 120 120" class="stat-ring">
-              <circle cx="60" cy="60" r="52" class="stat-ring__bg"></circle>
-              <circle cx="60" cy="60" r="52" class="stat-ring__fg" data-percent="45"></circle>
-            </svg>
-            <span class="stat-number" data-count="45">0%</span>
-          </div>
-          <p class="stat-caption">del tiempo laboral se pierde en tareas manuales</p>
+      <div class="autoridad__stats reveal">
+        <div class="autoridad__stat">
+          <span class="counter" data-target="3500" data-suffix="+">0</span>
+          <p class="counter-label">interacciones automatizadas por día entre ERP y usuario</p>
         </div>
-
-        <div class="problema__description reveal">
-          <p>
-            Los puestos <strong>White Collar</strong> dedican casi la mitad de su
-            jornada a tareas repetitivas entre <strong>SAP</strong> y <strong>Excel</strong>:
-            copiar, pegar, conciliar y reportar información que ya existe en el sistema.
-          </p>
-          <p>
-            Ese tiempo es talento humano atrapado en procesos que la tecnología
-            ya puede resolver.
-          </p>
-
-          <ul class="problema__list">
-            <li>
-              <span class="icon-dot"></span>
-              Reportes manuales que se repiten día tras día
-            </li>
-            <li>
-              <span class="icon-dot"></span>
-              Datos duplicados entre SAP, Excel y correo
-            </li>
-            <li>
-              <span class="icon-dot"></span>
-              Decisiones retrasadas por falta de información a tiempo
-            </li>
-          </ul>
+        <div class="autoridad__stat">
+          <span class="counter" data-target="99" data-suffix="%">0</span>
+          <p class="counter-label">de precisión en procesos críticos automatizados</p>
+        </div>
+        <div class="autoridad__stat">
+          <span class="counter" data-target="0" data-suffix=" MXN">0</span>
+          <p class="counter-label">de inversión en nuevas licencias para empezar</p>
         </div>
       </div>
+
+      <div class="client-badge-row reveal">
+        <span class="client-badge-caption">Empresas que ya confían en AGIL</span>
+        <div class="client-badge">Wella Company</div>
+        <span class="client-badge-caption client-badge-caption--muted">+ más empresas globales</span>
+      </div>
+
+      <div class="services-pills reveal">
+        <span>Automatización de procesos</span>
+        <span>Integración ERP · CRM · Excel · APIs</span>
+        <span>IA aplicada a operaciones</span>
+        <span>Dashboards &amp; analítica</span>
+        <span>Desarrollo de software a medida</span>
+        <span>Migración a infraestructura moderna</span>
+      </div>
+
+      <p class="microcopy-young reveal">Si ellos confían en AGIL, tú también puedes.</p>
     </div>
   </section>
 
   <!-- ============================= -->
-  <!-- 3. FILOSOFÍA AGIL -->
+  <!-- 3. PÉRDIDAS INVISIBLES -->
   <!-- ============================= -->
-  <section class="filosofia" id="filosofia">
+  <section class="section--light perdidas" id="perdidas">
     <div class="container">
       <div class="section-header reveal">
-        <p class="eyebrow">Filosofía AGIL</p>
-        <h2>La tecnología al servicio de las personas</h2>
+        <p class="eyebrow">Diagnóstico</p>
+        <h2>Lo que tus sistemas no te muestran.</h2>
       </div>
 
-      <div class="filosofia__grid">
-        <div class="filosofia__card reveal">
-          <div class="filosofia__icon">
+      <div class="perdidas__grid">
+        <div class="perdidas__card reveal">
+          <div class="perdidas__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 9v4"/>
+              <path d="M12 17h.01"/>
+              <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/>
+            </svg>
+          </div>
+          <h3>Errores invisibles</h3>
+          <p>Captura manual = errores que no ves, pero sí pagas.</p>
+        </div>
+
+        <div class="perdidas__card reveal">
+          <div class="perdidas__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 7v5l3 3"/>
+            </svg>
+          </div>
+          <h3>Tiempos muertos</h3>
+          <p>Reportes lentos = decisiones tardías.</p>
+        </div>
+
+        <div class="perdidas__card reveal">
+          <div class="perdidas__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/>
               <circle cx="10" cy="7" r="4"/>
@@ -138,128 +172,244 @@
               <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
             </svg>
           </div>
-          <h3>No es reemplazo</h3>
-          <p>Liberar el potencial humano. No automatizamos personas, automatizamos
-             tareas para que las personas piensen, decidan y creen valor.</p>
+          <h3>Dependencia humana</h3>
+          <p>Personas saturadas = riesgo operativo.</p>
+        </div>
+      </div>
+
+      <div class="perdidas__cta reveal">
+        <button id="evaluarBtn" class="btn btn--outline">Evaluar mi empresa</button>
+      </div>
+
+      <p class="microcopy-young reveal">
+        No te preocupes, casi todas las empresas tienen estos problemas.<br>
+        La diferencia es que tú ya los estás detectando.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- 4. TEST DE MODERNIZACIÓN OPERATIVA -->
+  <!-- ============================= -->
+  <section class="section--light test" id="test">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow">Diagnóstico Interactivo</p>
+        <h2>Test de Modernización Operativa</h2>
+        <p class="section-subtitle">¿Qué tan moderna es tu operación? Responde 9 preguntas y obtén tu score en menos de 30 segundos.</p>
+      </div>
+
+      <div class="quiz reveal" id="quiz">
+        <div class="quiz__progress"><div class="quiz__progress-bar" id="quizProgress"></div></div>
+
+        <!-- INTRO -->
+        <div class="quiz__intro" id="quizIntro">
+          <p class="quiz__intro-text">9 preguntas rápidas sobre cómo opera tu empresa hoy. Al final, tu Score de Modernización Operativa, tu nivel de riesgo y tu oportunidad de mejora.</p>
+          <button class="btn btn--primary" id="quizStartBtn">Comenzar Test</button>
         </div>
 
-        <div class="filosofia__card reveal">
-          <div class="filosofia__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <ellipse cx="12" cy="5" rx="9" ry="3"/>
-              <path d="M3 5v14a9 3 0 0 0 18 0V5"/>
-              <path d="M3 12a9 3 0 0 0 18 0"/>
-            </svg>
+        <!-- QUESTIONS -->
+        <div class="quiz__questions" id="quizQuestions" hidden>
+          <p class="quiz__counter" id="quizStep">Pregunta 1 de 9</p>
+
+          <div class="quiz__question is-active" data-index="0">
+            <h3>¿Cuántas tareas administrativas repetitivas realiza tu equipo cada día?</h3>
+            <div class="quiz__options">
+              <button class="quiz__option" data-points="3">50–100</button>
+              <button class="quiz__option" data-points="2">100–300</button>
+              <button class="quiz__option" data-points="1">300+</button>
+              <button class="quiz__option" data-points="0">No sé, pero son MUCHAS</button>
+            </div>
+            <div class="quiz__feedback">Si son más de 100, ya hay oportunidad de automatización.</div>
+            <button class="btn btn--primary quiz__next" disabled>Siguiente</button>
           </div>
-          <h3>Datos a su servicio</h3>
-          <p>Los datos trabajan para las personas, no al revés. Convertimos
-             información dispersa en flujos automáticos y confiables.</p>
+
+          <div class="quiz__question" data-index="1">
+            <h3>¿Tu ERP está realmente conectado con tus procesos diarios?</h3>
+            <div class="quiz__options">
+              <button class="quiz__option" data-points="3">Sí, totalmente</button>
+              <button class="quiz__option" data-points="2">Parcialmente</button>
+              <button class="quiz__option" data-points="0">No</button>
+              <button class="quiz__option" data-points="1">No sé</button>
+            </div>
+            <div class="quiz__feedback">La mayoría de los ERP no reflejan la operación real. No pasa nada.</div>
+            <button class="btn btn--primary quiz__next" disabled>Siguiente</button>
+          </div>
+
+          <div class="quiz__question" data-index="2">
+            <h3>¿Cuántas veces tu equipo captura datos manualmente al día?</h3>
+            <div class="quiz__options">
+              <button class="quiz__option" data-points="3">10–50</button>
+              <button class="quiz__option" data-points="2">50–200</button>
+              <button class="quiz__option" data-points="1">200+</button>
+              <button class="quiz__option" data-points="0">Todo el día</button>
+            </div>
+            <div class="quiz__feedback">La captura manual es la causa #1 de errores invisibles.</div>
+            <button class="btn btn--primary quiz__next" disabled>Siguiente</button>
+          </div>
+
+          <div class="quiz__question" data-index="3">
+            <h3>¿Tus reportes tardan más de 1 día en generarse?</h3>
+            <div class="quiz__options">
+              <button class="quiz__option" data-points="0">Sí</button>
+              <button class="quiz__option" data-points="3">No</button>
+              <button class="quiz__option" data-points="1">A veces</button>
+            </div>
+            <div class="quiz__feedback">Si tardan más de 24 horas, hay un cuello de botella claro.</div>
+            <button class="btn btn--primary quiz__next" disabled>Siguiente</button>
+          </div>
+
+          <div class="quiz__question" data-index="4">
+            <h3>¿Tus sistemas hablan entre sí? (ERP, CRM, Excel, etc.)</h3>
+            <div class="quiz__options">
+              <button class="quiz__option" data-points="3">Sí</button>
+              <button class="quiz__option" data-points="2">Parcial</button>
+              <button class="quiz__option" data-points="0">No</button>
+              <button class="quiz__option" data-points="1">No sé</button>
+            </div>
+            <div class="quiz__feedback">La desconexión entre sistemas es normal… pero costosa.</div>
+            <button class="btn btn--primary quiz__next" disabled>Siguiente</button>
+          </div>
+
+          <div class="quiz__question" data-index="5">
+            <h3>¿Cuántos errores operativos detectas al mes?</h3>
+            <div class="quiz__options">
+              <button class="quiz__option" data-points="3">0–10</button>
+              <button class="quiz__option" data-points="2">10–50</button>
+              <button class="quiz__option" data-points="0">50+</button>
+              <button class="quiz__option" data-points="1">No sé</button>
+            </div>
+            <div class="quiz__feedback">Los errores cuestan más de lo que parecen. Literalmente.</div>
+            <button class="btn btn--primary quiz__next" disabled>Siguiente</button>
+          </div>
+
+          <div class="quiz__question" data-index="6">
+            <h3>¿Qué tan dependiente es tu operación de personas saturadas?</h3>
+            <div class="quiz__options">
+              <button class="quiz__option" data-points="3">Poco</button>
+              <button class="quiz__option" data-points="2">Medio</button>
+              <button class="quiz__option" data-points="1">Mucho</button>
+              <button class="quiz__option" data-points="0">Demasiado</button>
+            </div>
+            <div class="quiz__feedback">Si tu operación depende de personas saturadas, ya hay riesgo operativo.</div>
+            <button class="btn btn--primary quiz__next" disabled>Siguiente</button>
+          </div>
+
+          <div class="quiz__question" data-index="7">
+            <h3>¿Tu empresa usa IA para operaciones?</h3>
+            <div class="quiz__options">
+              <button class="quiz__option" data-points="3">Sí</button>
+              <button class="quiz__option" data-points="0">No</button>
+              <button class="quiz__option" data-points="1">No sé</button>
+            </div>
+            <div class="quiz__feedback">La IA operativa ya no es opcional. Es ventaja competitiva.</div>
+            <button class="btn btn--primary quiz__next" disabled>Siguiente</button>
+          </div>
+
+          <div class="quiz__question" data-index="8">
+            <h3>¿Qué tan urgente es modernizar tus procesos?</h3>
+            <div class="quiz__options">
+              <button class="quiz__option" data-urgency="Baja">Baja</button>
+              <button class="quiz__option" data-urgency="Media">Media</button>
+              <button class="quiz__option" data-urgency="Alta">Alta</button>
+              <button class="quiz__option" data-urgency="Ayer">Ayer</button>
+            </div>
+            <div class="quiz__feedback">Ok, ya casi terminamos. Tu score está quedando interesante.</div>
+            <button class="btn btn--primary quiz__next" disabled>Ver mi Score</button>
+          </div>
+        </div>
+
+        <!-- RESULT -->
+        <div class="quiz__result" id="quizResult" hidden>
+          <p class="quiz__urgency-badge" id="quizUrgencyBadge" hidden>🔥 Prioridad alta detectada</p>
+          <p class="quiz__score-label">Tu Score de Modernización Operativa</p>
+          <p class="quiz__score"><span id="quizScoreNumber">0</span><span class="quiz__score-max">/100</span></p>
+
+          <p class="quiz__diagnosis" id="quizDiagnosis"></p>
+
+          <div class="quiz__meta">
+            <div>
+              <p class="label">Pérdida estimada mensual</p>
+              <p class="value" id="quizLoss">—</p>
+            </div>
+            <div>
+              <p class="label">Nivel de riesgo</p>
+              <p class="value" id="quizRisk">—</p>
+            </div>
+            <div>
+              <p class="label">Oportunidad de mejora</p>
+              <p class="value" id="quizOpportunity">—</p>
+            </div>
+          </div>
+
+          <a href="#" target="_blank" rel="noopener" class="btn btn--primary btn--lg" id="quizResultCta">Solicitar Auditoría Operativa</a>
+          <p class="quiz__disclaimer">Diagnóstico completo, sin costo. Prioridad para empresas con procesos administrativos pesados.<br>Estimado ilustrativo basado en tus respuestas.</p>
+          <button class="quiz__restart" id="quizRestart">Volver a hacer el test</button>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============================= -->
-  <!-- 4. SOLUCIONES DE COSTO CERO -->
+  <!-- 5. CASOS REALES -->
   <!-- ============================= -->
-  <section class="soluciones" id="soluciones">
+  <section class="section--light casos" id="casos">
     <div class="container">
       <div class="section-header reveal">
-        <p class="eyebrow">Soluciones de Costo Cero</p>
-        <h2>Automatización sin inversión en nuevas licencias</h2>
-        <p class="section-subtitle">
-          Aprovechamos las herramientas que tu empresa ya tiene para eliminar
-          tareas manuales, sin gasto adicional en software.
-        </p>
+        <p class="eyebrow">Prueba Social</p>
+        <h2>Resultados reales en empresas reales</h2>
       </div>
 
-      <div class="soluciones__grid">
-        <div class="soluciones__card reveal">
-          <div class="card-glow"></div>
-          <div class="soluciones__number">01</div>
-          <h3>Excel Macros &amp; Scripts</h3>
-          <p>Automatización de reportes, consolidación de datos y cálculos
-             recurrentes directamente en el entorno que tu equipo ya domina.</p>
+      <div class="casos__grid">
+        <div class="casos__card reveal">
+          <div class="casos__stat">45%</div>
+          <h3>menos tiempo administrativo</h3>
+          <p>Empresa logística</p>
         </div>
-
-        <div class="soluciones__card reveal">
-          <div class="card-glow"></div>
-          <div class="soluciones__number">02</div>
-          <h3>SAP Scripting</h3>
-          <p>Ejecución automática de transacciones repetitivas en SAP, reduciendo
-             errores humanos y tiempos de captura de información.</p>
+        <div class="casos__card reveal">
+          <div class="casos__stat">80%</div>
+          <h3>menos errores en captura</h3>
+          <p>PYME industrial</p>
         </div>
-
-        <div class="soluciones__card reveal">
-          <div class="card-glow"></div>
-          <div class="soluciones__number">03</div>
-          <h3>Power Automate</h3>
-          <p>Flujos de trabajo conectados entre correo, archivos y sistemas
-             para que la información se mueva sola, a tiempo y sin intervención manual.</p>
+        <div class="casos__card reveal">
+          <div class="casos__stat">3,500</div>
+          <h3>interacciones automatizadas por día</h3>
+          <p>Corporativo global</p>
         </div>
       </div>
+
+      <p class="microcopy-young reveal">La automatización no es futuro.<br>Es ventaja competitiva.</p>
     </div>
   </section>
 
   <!-- ============================= -->
-  <!-- 5. RUTA DE IMPLEMENTACIÓN -->
+  <!-- 6. EXCLUSIVIDAD -->
   <!-- ============================= -->
-  <section class="ruta" id="ruta">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="eyebrow">Ruta de Implementación</p>
-        <h2>De la idea al Go-Live, sin fricción</h2>
-      </div>
-
-      <div class="ruta__timeline">
-        <div class="ruta__step reveal">
-          <div class="ruta__marker"><span>01</span></div>
-          <h3>Auditoría</h3>
-          <p>Analizamos tus procesos actuales para identificar dónde se
-             pierde tiempo y dónde vive la oportunidad de automatizar.</p>
-        </div>
-
-        <div class="ruta__step reveal">
-          <div class="ruta__marker"><span>02</span></div>
-          <h3>Diseño</h3>
-          <p>Diseñamos la solución a medida, usando herramientas de costo
-             cero adaptadas a tu operación.</p>
-        </div>
-
-        <div class="ruta__step reveal">
-          <div class="ruta__marker"><span>03</span></div>
-          <h3>Prueba</h3>
-          <p>Validamos la automatización en un entorno controlado para
-             asegurar precisión, estabilidad y adopción.</p>
-        </div>
-
-        <div class="ruta__step reveal">
-          <div class="ruta__marker"><span>04</span></div>
-          <h3>Go-Live</h3>
-          <p>Implementamos en producción con acompañamiento, listo para
-             generar impacto desde el primer día.</p>
-        </div>
-      </div>
+  <section class="exclusividad" id="exclusividad">
+    <div class="container reveal">
+      <p class="eyebrow">Cupo Limitado</p>
+      <h2>Auditorías limitadas</h2>
+      <p class="section-subtitle">Solo 10 auditorías operativas por semana.<br>Prioridad para empresas con procesos administrativos pesados.</p>
+      <a href="https://wa.me/525532180680?text=Hola%20AGIL%2C%20quiero%20agendar%20mi%20auditor%C3%ADa%20operativa.%20Vi%20que%20hay%20cupo%20limitado%20esta%20semana." target="_blank" rel="noopener" class="btn btn--primary btn--lg">Agendar Auditoría</a>
+      <p class="microcopy-young">Si ya llegaste hasta aquí, tu empresa lo necesita.</p>
     </div>
   </section>
 
   <!-- ============================= -->
-  <!-- 6. CTA FINAL -->
+  <!-- 7. CIERRE -->
   <!-- ============================= -->
-  <section class="cta-final" id="contacto">
-    <div class="cta-final__glow"></div>
-    <div class="container cta-final__content reveal">
-      <h2>Es momento de hacer que los datos trabajen para nosotros.</h2>
-      <p>Empieza con una auditoría gratuita y descubre cuánto tiempo puedes recuperar.</p>
+  <section class="cierre" id="auditoria">
+    <div class="cierre__glow"></div>
+    <div class="container cierre__content reveal">
+      <h2>AGIL no es un software.<br><span class="text-gradient">Es la nueva forma de operar tu empresa.</span></h2>
       <div class="hero__actions">
-        <a href="https://wa.me/525532180680?text=Hola%20AGIL%2C%20me%20gustar%C3%ADa%20agendar%20una%20auditor%C3%ADa%20gratuita%20de%20automatizaci%C3%B3n." target="_blank" rel="noopener" class="btn btn--primary">Escríbenos por WhatsApp</a>
-        <a href="mailto:contacto@agilmx.ai" class="btn btn--ghost">Enviar correo</a>
+        <a href="https://wa.me/525532180680?text=Hola%20AGIL%2C%20quiero%20solicitar%20una%20Auditor%C3%ADa%20Operativa%20para%20mi%20empresa." target="_blank" rel="noopener" class="btn btn--primary btn--lg">Solicitar Auditoría Operativa</a>
       </div>
     </div>
   </section>
 
   <!-- ============================= -->
-  <!-- 7. FOOTER -->
+  <!-- FOOTER -->
   <!-- ============================= -->
   <footer class="footer">
     <div class="container footer__inner">

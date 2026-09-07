@@ -1,7 +1,7 @@
 /* =====================================================
    AGIL — Automated García Intelligence & Logistics
    Landing Page Stylesheet
-   Tema: tecnológico oscuro, acentos azul eléctrico / cian
+   Tema híbrido: hero oscuro premium + secciones claras
 ===================================================== */
 
 /* ---------- Variables globales ---------- */
@@ -13,6 +13,7 @@
 
   --blue: #2f6bff;
   --blue-light: #5b8dff;
+  --blue-deep: #123fc7;
   --cyan: #22e2ff;
   --cyan-soft: rgba(34, 226, 255, 0.15);
   --blue-soft: rgba(47, 107, 255, 0.15);
@@ -20,6 +21,14 @@
   --text-main: #eef2f7;
   --text-dim: #9aa6b6;
   --text-faint: #6b7686;
+
+  --bg-light: #f6f8fc;
+  --bg-light-alt: #eef2fb;
+  --card-light: #ffffff;
+  --text-dark: #10131a;
+  --text-dark-dim: #545e70;
+  --shadow-soft: 0 10px 34px rgba(15, 23, 42, 0.08);
+  --border-light: rgba(15, 23, 42, 0.08);
 
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-neon: rgba(34, 226, 255, 0.35);
@@ -64,6 +73,10 @@ img, svg {
   max-width: 100%;
 }
 
+button {
+  font-family: inherit;
+}
+
 .container {
   width: 100%;
   max-width: 1140px;
@@ -96,6 +109,15 @@ h1, h2, h3, h4 {
   margin-bottom: 14px;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* ---------- Scroll reveal ---------- */
 .reveal {
   opacity: 0;
@@ -123,6 +145,11 @@ h1, h2, h3, h4 {
   white-space: nowrap;
 }
 
+.btn--lg {
+  padding: 17px 38px;
+  font-size: 1.02rem;
+}
+
 .btn--primary {
   background: linear-gradient(90deg, var(--blue), var(--cyan));
   color: #04070d;
@@ -134,6 +161,13 @@ h1, h2, h3, h4 {
   box-shadow: 0 0 30px rgba(34, 226, 255, 0.55), 0 0 60px rgba(47, 107, 255, 0.4);
 }
 
+.btn--primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 .btn--ghost {
   background: transparent;
   color: var(--text-main);
@@ -143,6 +177,17 @@ h1, h2, h3, h4 {
 .btn--ghost:hover {
   background: var(--cyan-soft);
   box-shadow: 0 0 18px rgba(34, 226, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--blue-deep);
+  border: 1.5px solid var(--blue-deep);
+}
+
+.btn--outline:hover {
+  background: rgba(18, 63, 199, 0.06);
   transform: translateY(-2px);
 }
 
@@ -237,9 +282,40 @@ h1, h2, h3, h4 {
   overflow: hidden;
 }
 
+#heroNetwork {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero__wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 160px;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero__wave svg {
+  width: 200%;
+  height: 100%;
+  animation: waveScroll 22s linear infinite;
+}
+
+@keyframes waveScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 .hero__grid {
   position: absolute;
   inset: 0;
+  z-index: 0;
   background-image:
     linear-gradient(rgba(34, 226, 255, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(34, 226, 255, 0.05) 1px, transparent 1px);
@@ -254,6 +330,7 @@ h1, h2, h3, h4 {
   filter: blur(120px);
   opacity: 0.55;
   pointer-events: none;
+  z-index: 0;
 }
 
 .hero__glow--1 {
@@ -280,7 +357,7 @@ h1, h2, h3, h4 {
 }
 
 .hero__title {
-  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-size: clamp(2.2rem, 4.6vw, 3.6rem);
   margin-bottom: 22px;
 }
 
@@ -288,20 +365,31 @@ h1, h2, h3, h4 {
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   color: var(--text-main);
   font-weight: 500;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .hero__text {
   color: var(--text-dim);
-  font-size: 1.05rem;
+  font-size: 0.98rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
   max-width: 560px;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 18px;
+}
+
+.hero__microcopy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-top: 20px;
+  font-size: 0.86rem;
+  color: var(--text-dim);
 }
 
 .scroll-indicator {
@@ -359,290 +447,472 @@ section {
   position: relative;
 }
 
+/* ---------- Light section theme ---------- */
+.section--light {
+  background: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.section--light .eyebrow {
+  color: var(--blue-deep);
+}
+
+.section--light h2,
+.section--light h3 {
+  color: var(--text-dark);
+}
+
+.section--light p,
+.section--light .section-subtitle {
+  color: var(--text-dark-dim);
+}
+
+.section--light strong {
+  color: var(--blue-deep);
+}
+
+.microcopy-young {
+  text-align: center;
+  margin-top: 48px;
+  font-size: 1rem;
+  color: var(--text-dark-dim);
+  font-weight: 500;
+}
+
 /* =====================================================
-   2. EL PROBLEMA
+   2. AUTORIDAD
 ===================================================== */
-.problema {
-  background: var(--bg-carbon);
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
+.autoridad {
+  border-bottom: 1px solid var(--border-light);
 }
 
-.problema__grid {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.problema__stat {
+.autoridad__stats {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 56px;
+  margin: 8px 0 56px;
   text-align: center;
 }
 
-.stat-circle {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.stat-ring {
-  width: 100%;
-  height: 100%;
-  transform: rotate(-90deg);
-}
-
-.stat-ring__bg {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.06);
-  stroke-width: 8;
-}
-
-.stat-ring__fg {
-  fill: none;
-  stroke: url(#nogrd);
-  stroke: var(--cyan);
-  stroke-width: 8;
-  stroke-linecap: round;
-  stroke-dasharray: 327;
-  stroke-dashoffset: 327;
-  filter: drop-shadow(0 0 8px rgba(34, 226, 255, 0.6));
-  transition: stroke-dashoffset 1.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.stat-number {
-  position: absolute;
-  font-family: var(--font-heading);
-  font-size: 2.6rem;
-  font-weight: 800;
-  color: var(--text-main);
-}
-
-.stat-caption {
-  color: var(--text-dim);
+.autoridad__stat {
   max-width: 220px;
-  font-size: 0.95rem;
 }
 
-.problema__description p {
-  color: var(--text-dim);
-  margin-bottom: 18px;
-  font-size: 1.05rem;
+.counter {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--blue-deep);
 }
 
-.problema__description strong {
-  color: var(--cyan);
+.counter-label {
+  margin-top: 6px;
+  font-size: 0.92rem;
+  color: var(--text-dark-dim);
+}
+
+.client-badge-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 48px;
+}
+
+.client-badge-caption {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dark-dim);
   font-weight: 600;
 }
 
-.problema__list {
-  margin-top: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+.client-badge-caption--muted {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-size: 0.9rem;
 }
 
-.problema__list li {
-  display: flex;
+.client-badge {
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
-  color: var(--text-main);
-  font-size: 0.98rem;
+  padding: 16px 32px;
+  border-radius: 14px;
+  background: var(--card-light);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-soft);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text-dark);
 }
 
-.icon-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 8px rgba(34, 226, 255, 0.8);
-  flex-shrink: 0;
+.services-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.services-pills span {
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: rgba(18, 63, 199, 0.06);
+  color: var(--blue-deep);
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid rgba(18, 63, 199, 0.14);
 }
 
 /* =====================================================
-   3. FILOSOFÍA
+   3. PÉRDIDAS INVISIBLES
 ===================================================== */
-.filosofia__grid {
+.perdidas__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
 }
 
-.filosofia__card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+.perdidas__card {
+  background: var(--card-light);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius);
-  padding: 40px;
-  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+  padding: 38px 32px;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition), box-shadow var(--transition);
 }
 
-.filosofia__card:hover {
+.perdidas__card:hover {
   transform: translateY(-6px);
-  border-color: var(--border-neon);
-  box-shadow: 0 0 30px rgba(34, 226, 255, 0.12);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
 }
 
-.filosofia__icon {
+.perdidas__icon {
   width: 52px;
   height: 52px;
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
-  background: linear-gradient(135deg, var(--blue-soft), var(--cyan-soft));
-  color: var(--cyan);
+  margin-bottom: 22px;
+  background: rgba(18, 63, 199, 0.08);
+  color: var(--blue-deep);
 }
 
-.filosofia__icon svg {
+.perdidas__icon svg {
   width: 26px;
   height: 26px;
 }
 
-.filosofia__card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 12px;
+.perdidas__card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 
-.filosofia__card p {
-  color: var(--text-dim);
+.perdidas__card p {
+  font-size: 0.96rem;
+}
+
+.perdidas__cta {
+  text-align: center;
+  margin-top: 44px;
 }
 
 /* =====================================================
-   4. SOLUCIONES DE COSTO CERO
+   4. TEST DE MODERNIZACIÓN
 ===================================================== */
-.soluciones {
-  background: var(--bg-carbon);
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
+.quiz {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--card-light);
+  border: 1px solid var(--border-light);
+  border-radius: 22px;
+  box-shadow: var(--shadow-soft);
+  padding: 44px;
+  position: relative;
 }
 
-.soluciones__grid {
+.quiz__progress {
+  height: 6px;
+  background: rgba(15, 23, 42, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.quiz__progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  transition: width 0.4s ease;
+}
+
+.quiz__intro {
+  text-align: center;
+}
+
+.quiz__intro-text {
+  color: var(--text-dark-dim);
+  max-width: 480px;
+  margin: 0 auto 28px;
+  font-size: 1.02rem;
+}
+
+.quiz__counter {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dark-dim);
+  margin-bottom: 20px;
+}
+
+.quiz__question {
+  display: none;
+}
+
+.quiz__question.is-active {
+  display: block;
+  animation: quizFade 0.4s ease;
+}
+
+@keyframes quizFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.quiz__question h3 {
+  font-size: 1.3rem;
+  margin-bottom: 24px;
+  color: var(--text-dark);
+}
+
+.quiz__options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.quiz__option {
+  text-align: left;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border-light);
+  background: #fff;
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.quiz__option:hover {
+  border-color: var(--blue);
+  background: rgba(47, 107, 255, 0.05);
+}
+
+.quiz__option.is-selected {
+  border-color: var(--blue);
+  background: rgba(47, 107, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(47, 107, 255, 0.12);
+}
+
+.quiz__feedback {
+  display: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--blue-deep);
+  background: rgba(18, 63, 199, 0.06);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 22px;
+}
+
+.quiz__feedback.is-visible {
+  display: block;
+  animation: quizFade 0.3s ease;
+}
+
+.quiz__next {
+  width: 100%;
+}
+
+/* ---------- Result panel ---------- */
+.quiz__result {
+  text-align: center;
+}
+
+.quiz__urgency-badge {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(209, 64, 58, 0.1);
+  color: #b13a30;
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+.quiz__score-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--text-dark-dim);
+  margin-bottom: 6px;
+}
+
+.quiz__score {
+  font-family: var(--font-heading);
+  font-size: 3.6rem;
+  font-weight: 800;
+  color: var(--blue-deep);
+  margin-bottom: 18px;
+}
+
+.quiz__score-max {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-dark-dim);
+}
+
+.quiz__diagnosis {
+  max-width: 520px;
+  margin: 0 auto 28px;
+  color: var(--text-dark-dim);
+  font-size: 1.02rem;
+}
+
+.quiz__meta {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.quiz__meta .label {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dark-dim);
+  margin-bottom: 4px;
+}
+
+.quiz__meta .value {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-dark);
+}
+
+.risk--bajo { color: #1a9c62; }
+.risk--medio { color: #c48a12; }
+.risk--alto { color: #d1403a; }
+.risk--critico { color: #a11d1d; }
+
+.quiz__disclaimer {
+  margin-top: 20px;
+  font-size: 0.84rem;
+  color: var(--text-dark-dim);
+}
+
+.quiz__restart {
+  display: block;
+  margin: 18px auto 0;
+  background: none;
+  border: none;
+  color: var(--blue-deep);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* =====================================================
+   5. CASOS REALES
+===================================================== */
+.casos__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
 }
 
-.soluciones__card {
-  position: relative;
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+.casos__card {
+  background: var(--card-light);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius);
   padding: 36px 30px;
-  overflow: hidden;
-  transition: transform var(--transition), border-color var(--transition);
-}
-
-.soluciones__card:hover {
-  transform: translateY(-6px);
-  border-color: var(--border-neon);
-}
-
-.card-glow {
-  position: absolute;
-  top: -40%;
-  right: -30%;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(34, 226, 255, 0.25), transparent 70%);
-  opacity: 0;
-  transition: opacity var(--transition);
-}
-
-.soluciones__card:hover .card-glow {
-  opacity: 1;
-}
-
-.soluciones__number {
-  font-family: var(--font-heading);
-  font-size: 0.9rem;
-  color: var(--cyan);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  margin-bottom: 18px;
-}
-
-.soluciones__card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 12px;
-}
-
-.soluciones__card p {
-  color: var(--text-dim);
-  font-size: 0.96rem;
-}
-
-/* =====================================================
-   5. RUTA DE IMPLEMENTACIÓN
-===================================================== */
-.ruta__timeline {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
-  position: relative;
-}
-
-.ruta__timeline::before {
-  content: '';
-  position: absolute;
-  top: 26px;
-  left: 8%;
-  right: 8%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border-neon), transparent);
-  z-index: 0;
-}
-
-.ruta__step {
-  position: relative;
-  z-index: 1;
   text-align: center;
-  padding: 0 12px;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition);
 }
 
-.ruta__marker {
-  width: 54px;
-  height: 54px;
-  margin: 0 auto 22px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg-carbon-2);
-  border: 1px solid var(--border-neon);
-  box-shadow: 0 0 18px rgba(34, 226, 255, 0.25);
+.casos__card:hover {
+  transform: translateY(-6px);
+}
+
+.casos__stat {
   font-family: var(--font-heading);
-  font-weight: 700;
-  color: var(--cyan);
-}
-
-.ruta__step h3 {
-  font-size: 1.15rem;
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--blue-deep);
   margin-bottom: 10px;
 }
 
-.ruta__step p {
-  color: var(--text-dim);
-  font-size: 0.92rem;
+.casos__card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.casos__card p {
+  font-size: 0.9rem;
+  color: var(--text-dark-dim);
 }
 
 /* =====================================================
-   6. CTA FINAL
+   6. EXCLUSIVIDAD
 ===================================================== */
-.cta-final {
+.exclusividad {
+  background: linear-gradient(180deg, var(--bg-light-alt), var(--bg-light));
+  text-align: center;
+  color: var(--text-dark);
+}
+
+.exclusividad .eyebrow {
+  color: var(--blue-deep);
+}
+
+.exclusividad h2 {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  margin-bottom: 14px;
+  color: var(--text-dark);
+}
+
+.exclusividad .section-subtitle {
+  max-width: 520px;
+  margin: 0 auto 34px;
+  color: var(--text-dark-dim);
+}
+
+.exclusividad .microcopy-young {
+  margin-top: 24px;
+}
+
+/* =====================================================
+   7. CIERRE
+===================================================== */
+.cierre {
   position: relative;
   text-align: center;
   overflow: hidden;
   background: radial-gradient(ellipse at center, var(--bg-carbon-2) 0%, var(--bg-black) 70%);
 }
 
-.cta-final__glow {
+.cierre__glow {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -654,30 +924,24 @@ section {
   pointer-events: none;
 }
 
-.cta-final__content {
+.cierre__content {
   position: relative;
   z-index: 1;
   max-width: 720px;
   margin: 0 auto;
 }
 
-.cta-final h2 {
-  font-size: clamp(1.9rem, 4vw, 2.6rem);
-  margin-bottom: 18px;
-}
-
-.cta-final p {
-  color: var(--text-dim);
+.cierre h2 {
+  font-size: clamp(1.9rem, 4.2vw, 2.7rem);
   margin-bottom: 34px;
-  font-size: 1.05rem;
 }
 
-.cta-final .hero__actions {
+.cierre .hero__actions {
   justify-content: center;
 }
 
 /* =====================================================
-   7. FOOTER
+   FOOTER
 ===================================================== */
 .footer {
   background: var(--bg-black);
@@ -818,32 +1082,26 @@ section {
     font-size: 0.85rem;
   }
 
-  .problema__grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .problema__description {
-    text-align: left;
-  }
-
-  .filosofia__grid,
-  .soluciones__grid {
+  .perdidas__grid,
+  .casos__grid {
     grid-template-columns: 1fr;
   }
 
-  .ruta__timeline {
-    grid-template-columns: 1fr;
-    gap: 44px;
-  }
-
-  .ruta__timeline::before {
-    display: none;
+  .autoridad__stats {
+    gap: 36px;
   }
 
   .footer__inner {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+
+  .quiz {
+    padding: 32px 24px;
+  }
+
+  .quiz__meta {
+    gap: 22px;
   }
 }
 
@@ -858,5 +1116,18 @@ section {
 
   .hero {
     padding-top: 120px;
+  }
+
+  .hero__text {
+    font-size: 0.86rem;
+  }
+
+  .client-badge {
+    font-size: 1rem;
+    padding: 14px 24px;
+  }
+
+  .quiz__score {
+    font-size: 2.8rem;
   }
 }
